@@ -1,6 +1,5 @@
 package svc
 
-import "C"
 import (
 	"github.com/xh-polaris/meowchat-collection-rpc/internal/config"
 	"github.com/xh-polaris/meowchat-collection-rpc/internal/model"
@@ -16,6 +15,6 @@ func NewServiceContext(c config.Config) *ServiceContext {
 	return &ServiceContext{
 		Config:     c,
 		CatModel:   model.NewCatModel(c.Mongo.URL, c.Mongo.DB, c.Cache, c.Elasticsearch),
-		ImageModel: model.NewImageModel(c.Mongo.URL, c.Mongo.DB),
+		ImageModel: model.NewImageModel(c.Mongo.URL, c.Mongo.DB, c.Cache),
 	}
 }

@@ -2,7 +2,10 @@ package model
 
 import (
 	"context"
+
+	"github.com/zeromicro/go-zero/core/stores/cache"
 	"github.com/zeromicro/go-zero/core/stores/mon"
+	"github.com/zeromicro/go-zero/core/stores/monc"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -46,8 +49,8 @@ func (c customImageModel) ListImageByCat(ctx context.Context, catId string, last
 }
 
 // NewImageModel returns a model for the mongo.
-func NewImageModel(url, db string) ImageModel {
-	conn := mon.MustNewModel(url, db, ImageCollectionName)
+func NewImageModel(url, db string, c cache.CacheConf) ImageModel {
+	conn := monc.MustNewModel(url, db, ImageCollectionName, c)
 	return &customImageModel{
 		defaultImageModel: newDefaultImageModel(conn),
 	}
