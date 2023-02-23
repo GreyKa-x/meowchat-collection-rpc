@@ -3,13 +3,12 @@ package logic
 import (
 	"context"
 	"github.com/xh-polaris/meowchat-collection-rpc/errorx"
+	"github.com/xh-polaris/meowchat-collection-rpc/pb"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"math"
 	"time"
 
 	"github.com/xh-polaris/meowchat-collection-rpc/internal/svc"
-	"github.com/xh-polaris/meowchat-collection-rpc/types/pb"
-
 	"github.com/zeromicro/go-zero/core/logx"
 )
 

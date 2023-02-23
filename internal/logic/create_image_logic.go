@@ -4,8 +4,7 @@ import (
 	"context"
 	"github.com/xh-polaris/meowchat-collection-rpc/internal/model"
 	"github.com/xh-polaris/meowchat-collection-rpc/internal/svc"
-	"github.com/xh-polaris/meowchat-collection-rpc/types/pb"
-
+	"github.com/xh-polaris/meowchat-collection-rpc/pb"
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
