@@ -2,29 +2,33 @@ package logic
 
 import (
 	"context"
+
 	"github.com/xh-polaris/meowchat-collection-rpc/internal/svc"
 	"github.com/xh-polaris/meowchat-collection-rpc/types/pb"
+
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
-type DeleteCatLogic struct {
+type DeleteImageLogic struct {
 	ctx    context.Context
 	svcCtx *svc.ServiceContext
 	logx.Logger
 }
 
-func NewDeleteCatLogic(ctx context.Context, svcCtx *svc.ServiceContext) *DeleteCatLogic {
-	return &DeleteCatLogic{
+func NewDeleteImageLogic(ctx context.Context, svcCtx *svc.ServiceContext) *DeleteImageLogic {
+	return &DeleteImageLogic{
 		ctx:    ctx,
 		svcCtx: svcCtx,
 		Logger: logx.WithContext(ctx),
 	}
 }
 
-func (l *DeleteCatLogic) DeleteCat(in *pb.DeleteCatReq) (*pb.DeleteCatResp, error) {
-	err := l.svcCtx.CatModel.Delete(l.ctx, in.CatId)
+func (l *DeleteImageLogic) DeleteImage(in *pb.DeleteImageReq) (*pb.DeleteImageResp, error) {
+
+	err := l.svcCtx.ImageModel.Delete(l.ctx, in.ImageId)
 	if err != nil {
 		return nil, err
 	}
-	return &pb.DeleteCatResp{}, nil
+
+	return &pb.DeleteImageResp{}, nil
 }
